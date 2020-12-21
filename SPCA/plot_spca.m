@@ -3,7 +3,7 @@
 n_set=[ 200; 300; 400; 500; ]; %dimension 
 r_set = [5;8;10;12;15];   % rank
 mu_set = [0.5;0.6;0.7;0.8];
-load('info_spca_random.mat');
+load('result_spca_random.mat');
 
 %% ----------------------------------fix  r and n --------------------------------------
 

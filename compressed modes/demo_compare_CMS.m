@@ -1,5 +1,5 @@
 %function compare_spca
-function info = demo_compare_CMS_dim_n_1()
+function info = demo_compare_CMS()
 clc
 clear;
 close all;
@@ -47,17 +47,14 @@ problem.egrad = @egrad;
          end
     end
 
-problem.ehess = @ehess;
-    function g = ehess(X,U)
-        g = -2*H*U;
-    end
+
 
 %% cycle
 info.n = 500; info.r = 5; info.C = zeros(7,7,length(n_set));
 for id_n =  1:length(n_set)        % n  dimension
     n = n_set(id_n);
     fid =1;
-    for id_r = 1% :size(r_set,1) % r  number of column
+    for id_r = 2% :size(r_set,1) % r  number of column
         for id_mu = 2%:length(mu_set)  %mu  sparsity parameter
             r = r_set(id_r);
             %mu = mu_set(id_mu);
@@ -116,7 +113,7 @@ for id_n =  1:length(n_set)        % n  dimension
 %                 options_palm.maxiter = 10;   options_palm.epso = 1e-5;
                 %
                 [X_palm,F_palm(test_random),sparsity_palm(test_random),time_palm(test_random),...
-                    maxit_att_palm(test_random),lins_palm(test_random),in_av_palm(test_random),succ_flag_palm] = Riemannian_palm_CMS(problem, Init, options_palm);
+                    maxit_att_palm(test_random),lins_palm(test_random),in_av_palm(test_random),succ_flag_palm] = Riemannian_mialm_CMS(problem, Init, options_palm);
                 if succ_flag_palm == 1
                     succ_no_palm = succ_no_palm + 1;
                 end
@@ -130,7 +127,7 @@ for id_n =  1:length(n_set)        % n  dimension
                 options_admm.iter = 5000;              options_admm.tolgradnorm = 1e-5;
                 options_admm.maxiter = 100;            options_admm.epso = 1e-8*n*r;
                 [X_admm,F_admm(test_random),sparsity_admm(test_random),time_admm(test_random),...
-                    maxit_att_admm(test_random),lins_admm(test_random),in_av_admm(test_random),succ_flag_admm] = Riemannian_admm(problem, Init, options_admm);
+                    maxit_att_admm(test_random),lins_admm(test_random),in_av_admm(test_random),succ_flag_admm] = Riemannian_admm_CMS(problem, Init, options_admm);
                 if succ_flag_admm == 1
                     succ_no_admm = succ_no_admm + 1;
                 end
@@ -207,22 +204,7 @@ for id_n =  1:length(n_set)        % n  dimension
                     succ_no_PAMAL = succ_no_PAMAL + 1;
                 end
                 
-                
-                
-                
-%                 options_sm = options_palm;
-%                 options_sm.mu = 5;     options_sm.rho = 1.5;
-%                 options_sm.iter = 500; options_sm.maxiter = 30;
-%                 options_sm.epso = 1e-3; options_sm.tolgradnorm = 1e-4;
-%                 options_sm.F_palm = F_palm(test_random);
-%                 [X_sm,F_sm(test_random),sparsity_sm(test_random),time_sm(test_random),...
-%                     maxit_att_sm(test_random),succ_flag_sm,options_sm] = Riemannian_smoothing(problem, Init, options_sm);
-%                 if succ_flag_sm == 1
-%                     succ_no_sm = succ_no_sm + 1;
-%                 end
-                
-                
-                
+               
                 
                 if succ_flag_sub == 0
                     fail_no_sub = fail_no_sub + 1;
@@ -242,27 +224,7 @@ for id_n =  1:length(n_set)        % n  dimension
                 if succ_flag_PAMAL == 2
                     diff_no_PAMAL = diff_no_PAMAL + 1;
                 end
-%                 if succ_flag_manpg == 1
-%                     F_best(test_random) =  F_manpg(test_random);
-%                 end
-%                 if succ_flag_manpg_BB == 1
-%                     F_best(test_random) =  min( F_best(test_random), F_manpg_BB(test_random));
-%                 end
-%                 if succ_flag_SOC == 1
-%                     F_best(test_random) =  min( F_best(test_random), F_soc(test_random));
-%                 end
-%                 if succ_flag_PAMAL == 1
-%                     F_best(test_random) =  min( F_best(test_random), F_pamal(test_random));
-%                 end
-%                 if succ_flag_palm == 1
-%                     F_best(test_random) =  min( F_best(test_random), F_palm(test_random));
-%                 end
-%                 if succ_flag_sm == 1
-%                     F_best(test_random) =  min( F_best(test_random), F_sm(test_random));
-%                 end
-%                 if succ_flag_admm == 1
-%                     F_best(test_random) =  min( F_best(test_random), F_admm(test_random));
-%                 end
+
             end
             
             
