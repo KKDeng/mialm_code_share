@@ -1,4 +1,4 @@
- # Code of paper "[An inexact augmented Lagrangian method for nonsmooth optimization on Riemannian manifold](https://arxiv.org/pdf/1911.09900)"
+ # Code of paper "[A manifold inexact augmented Lagrangian method for nonsmooth optimization on Riemannian manifold](https://arxiv.org/pdf/1911.09900)"
 
 Our code is based on "[manopt toolbox](https://www.manopt.org/index.html)" and code in paper "[Proximal Gradient Method for Nonsmooth Optimization over the Stiefel Manifold](https://epubs.siam.org/doi/abs/10.1137/18M122457X)" 
 
