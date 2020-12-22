@@ -103,7 +103,7 @@ for iter = 2:maxiter
     X = Z;
     HX = HZ;
     F(iter) = F_trial;
-    if  normDsquared/t^2 < tol && F_trial < option.F_palm + 1e-7
+    if  normDsquared/t^2 < tol && F_trial < option.F_mialm + 1e-7
 %         % if  abs(F(iter)-F(iter-1))/(abs(F(iter))+1)<tol
          break;
      end

@@ -90,7 +90,7 @@ option.flag = 0;
 while(t<option.iter)
     %option.tolgradnorm = max(1e-6,option.tolgradnorm*option.decrease);
     option.tolgradnorm = max(1e-4,0.9^t);
-    [X,info] = steepest_palm_CMS(problem,X0,option);
+    [X,info] = steepest_mialm_CMS(problem,X0,option);
    % [X,info] = conjugategradient_palm(problem,X0,option);
     
     option.flag = 1;

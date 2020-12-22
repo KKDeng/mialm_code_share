@@ -80,7 +80,7 @@ for iter = 2:maxiter
     F_trial = -sum(sum(Z.*(HZ)))+h(Z);
     normDsquared = norm(D,'fro')^2;
     
-    if  normDsquared/t^2 < tol  && F(iter - 1)<=option.F_palm + 1e-7
+    if  normDsquared/t^2 < tol  && F(iter - 1)<=option.F_mialm + 1e-7
         % if  abs(F(iter)-F(iter-1))/(abs(F(iter))+1)<tol
         break;
     end

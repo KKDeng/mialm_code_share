@@ -1,4 +1,4 @@
-function [x, info] = steepest_palm(problem, x, options)
+function [x, info] = steepest_mialm_spca(problem, x, options)
 
     
     

@@ -134,7 +134,7 @@ for iterp = 1:maxiter
     R1_old=R1; R2_old=R2;
     
     if iterp>2
-        % if abs(F_PALM(iterp)-F_PALM(iterp-1))/(abs(F_PALM(iterp))+1)<tol
+        % if abs(F_mialm(iterp)-F_mialm(iterp-1))/(abs(F_mialm(iterp))+1)<tol
         normXQ = norm(X-Q,'fro');
         normQ = norm(Q,'fro');
         normX = norm(X,'fro');
@@ -148,11 +148,11 @@ for iterp = 1:maxiter
                 AP = -(B*P);
             end
             F_PAMAL(iterp)= sum(sum(P.*(AP))) + mu*sum(sum(abs(P)));
-            if  F_PAMAL(iterp) <= option.F_manpg - 1e-2
+            if  F_PAMAL(iterp) <= option.F_mialm - 1e-2
                 flag = 1;%different point
                 break;
             end
-            if  F_PAMAL(iterp)<=option.F_palm+ 1e-7
+            if  F_PAMAL(iterp)<=option.F_mialm+ 1e-7
                 break;
             end
            
@@ -178,7 +178,7 @@ time_PAMAL = pamal_time;
 inner_iterate = sum(num)/iterp;
 error_XPQ = norm(X-P,'fro') + norm(X-Q,'fro');
 sparsity_pamal= sum(sum(P==0))/(n*r);
-X_manpg = option.X_palm  ;
+X_manpg = option.X_mialm  ;
 if iterp == maxiter || flag_time_out == 1
     fprintf('PAMAL  fails to converge in %d iterations \n', maxiter);
     %fprintf('PAMAL:Iter ***  Fval *** CPU  **** sparsity ***        iaverge_No.   ** err ***   inner_opt  \n');
@@ -209,7 +209,7 @@ else
         flag_succ = 1;
         
         F_pamal = F_PAMAL(iterp);
-        %Eigspalm=eig(P'*A*P);
+        %Eigsmialm=eig(P'*A*P);
         
         iter_pamal = iterp;
         % semilogy((1:iter),F(1:iter)-min(min(F),min(F2)));

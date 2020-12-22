@@ -64,7 +64,7 @@ for itera=1:maxiter
         if  normXQ/max(1,max(normQ,normX)) + normXP/max(1,max(normP,normX)) <tol
             AP = A*P;
             F_ad(itera)=sum(sum(X.*(AP)))+h(P);
-            if F_ad(itera)<=option.F_palm + 1e-7
+            if F_ad(itera)<=option.F_mialm + 1e-7
                 break;
             end
              if normXQ/max(1,max(normQ,normX)) + normXP/max(1,max(normP,normX)) < 1e-10
@@ -83,7 +83,7 @@ P((abs(P)<=1e-4))=0;
 X_Soc=P;
 time_soc= toc;
 error_XPQ = norm(X-P,'fro') + norm(X-Q,'fro');
-X_palm = option.X_palm;
+X_mialm = option.X_mialm;
 sparsity_soc= sum(sum(P==0))/(n*r);
 
 if itera == maxiter
@@ -99,7 +99,7 @@ if itera == maxiter
     %fprintf(1,print_format, itera, F_ad(itera), time_soc, sparsity_soc,  error_XPQ);
     time_soc = 0;
 else
-    if norm(X_palm*X_palm'- X_Soc*X_Soc','fro')^2 > 0.1
+    if norm(X_mialm*X_mialm'- X_Soc*X_Soc','fro')^2 > 0.1
         fprintf('SOC returns different point \n');
         fprintf('Soc:Iter ***  Fval *** CPU  **** sparsity ********* err \n');
         

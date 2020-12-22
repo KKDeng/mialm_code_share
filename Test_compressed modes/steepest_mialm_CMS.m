@@ -1,4 +1,4 @@
-function [x, info] = steepest_palm_CMS(problem, x, options)
+function [x, info] = steepest_mialm_CMS(problem, x, options)
 
     
     
