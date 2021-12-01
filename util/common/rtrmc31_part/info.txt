@@ -1,0 +1,3 @@
+The few files in this folder come from the RTRMC toolbox, version 3.1, and have been
+written by Nicolas Boumal.
+They are included here by convenience, with their original license file.
