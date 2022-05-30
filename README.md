@@ -14,7 +14,7 @@ MIALM is a algorithm developed for solving the nonsmooth optimization problems o
 ## References
 If you use these codes in an academic paper, please cite the following papers.
 
- Kangkang, Deng, and Peng Zheng, [*An inexact augmented Lagrangian method for nonsmooth optimization on Riemannian manifold*](https://arxiv.org/abs/1911.09900), arXiv preprint arXiv:1911.09900 (2019).
+ Kangkang, Deng, and Peng Zheng, [*An inexact augmented Lagrangian method for nonsmooth optimization on Riemannian manifold,IMA Journal of Numerical Analysis*](https://doi.org/10.1093/imanum/drac018)).
 
 ## Authors
 
