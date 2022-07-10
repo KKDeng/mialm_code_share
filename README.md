@@ -4,7 +4,7 @@ Our code is based on "[manopt toolbox](https://www.manopt.org/index.html)" and c
 
 
 
-MIALM is a algorithm developed for solving the nonsmooth optimization problems on Riemannian manifold: $$ \min\limits_{X \in \mathcal{M}}   f (X) + h(\mathcal{A}(X)) .$$  Here, $f(X): \mathcal{M} \rightarrow \mathbb{R}$ is smoooth, $h(X):\mathbb{R}^m \rightarrow \mathbb{R}$ is  convex but nonsmooth, $\mathcal{A}:\mathcal{M}\to \mathbb{R}^m$ is a linear operator, and the feasible set $\mathcal{M}$ is a Riemannian manifold.
+MIALM is a algorithm developed for solving the nonsmooth optimization problems on Riemannian manifold: $$ \min\limits_{X \in \mathcal{M}}   f (X) + h(\mathcal{A}(X)) .$$  Here, $f(X): \mathcal{M} \rightarrow \mathbb{R}$ is smoooth, $h(X):\mathbb{R}^m \rightarrow \mathbb{R}$ is  convex but nonsmooth, $\mathcal{A}:\mathcal{M} \rightarrow \mathbb{R}^m$ is a linear operator, and the feasible set $\mathcal{M}$ is a Riemannian manifold.
 
 
 
